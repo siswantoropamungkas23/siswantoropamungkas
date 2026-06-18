@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>siswantoropamungkas | Math Masterclass</title>
+    <!-- Tailwind CSS Resmi (Sudah Diperbaiki) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax Resmi untuk Rumus Matematika -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(to right, #22d3ee, #a855f7, #f43f5e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans selection:bg-purple-500 selection:text-white">
+
+    <!-- HEADER / BANNER -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <h1 class="text-2xl font-black tracking-wider gradient-text">SISWANTORO PAMUNGKAS</h1>
+            <p class="text-xs font-semibold bg-slate-800 text-cyan-400 px-3 py-1 rounded-full border border-cyan-500/30 shadow-lg shadow-cyan-500/10">
+                🚀 Math Will Give You Some Fun!!
+            </p>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- INTRO HERO -->
+        <section class="text-center my-6 max-w-2xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">Taklukin Matematika Tanpa Ribet!</h2>
+            <p class="text-slate-400 text-xs sm:text-sm">Materi lengkap, latihan interaktif, dan video YouTube dalam satu genggaman. Pilih menu utama lalu ulik topiknya sampai paham!</p>
+        </section>
+
+        <!-- TIER 1: MENU UTAMA (Materi, Latihan, YouTube) -->
+        <div class="text-center mb-6">
+            <span class="text-xs font-bold text-slate-500 tracking-widest uppercase block mb-2">⚡ PILIH MENU UTAMA</span>
+            <nav class="flex justify-center gap-3 bg-slate-900/60 p-2 rounded-2xl border border-slate-800 max-w-xl mx-auto">
+                <button onclick="setMenu('materi')" id="btn-materi" class="flex-1 py-3 rounded-xl font-black text-sm transition">
+                    📚 MATERI
+                </button>
+                <button onclick="setMenu('soal')" id="btn-soal" class="flex-1 py-3 rounded-xl font-black text-sm transition">
+                    📝 LATIHAN
+                </button>
+                <button onclick="setMenu('youtube')" id="btn-youtube" class="flex-1 py-3 rounded-xl font-black text-sm transition">
+                    🎬 YOUTUBE
+                </button>
+            </nav>
+        </div>
+
+        <!-- TIER 2: SUB-MENU MATERI (SPLTDV, Trigono, Statistika) -->
+        <div class="text-center mb-10">
+            <span class="text-xs font-bold text-slate-500 tracking-widest uppercase block mb-2">📌 PILIH TOPIK MATERI</span>
+            <nav class="flex flex-wrap justify-center gap-3">
+                <button onclick="setTopic('spltdv')" id="btn-spltdv" class="px-5 py-2.5 rounded-xl text-xs font-bold border transition shadow-md">
+                    📊 1. SPTLDV
+                </button>
+                <button onclick="setTopic('trigonometri')" id="btn-trigonometri" class="px-5 py-2.5 rounded-xl text-xs font-bold border transition shadow-md">
+                    📐 2. TRIGONOMETRI
+                </button>
+                <button onclick="setTopic('statistika')" id="btn-statistika" class="px-5 py-2.5 rounded-xl text-xs font-bold border transition shadow-md">
+                    📈 3. STATISTIKA
+                </button>
+            </nav>
+        </div>
+
+        <!-- CONTAINER BLOCK KONTEN UTAMA -->
+        <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 sm:p-8 backdrop-blur shadow-2xl min-h-[400px]">
+            
+            <!-- ==================== TABS MATRIX CONTENT ==================== -->
+
+            <!-- KELOMPOK 1: MATERI -->
+            <div id="block-materi-spltdv" class="content-block hidden space-y-6">
+                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-cyan-400">📊 Materi Lengkap: Sistem Pertidaksamaan Linear Dua Variabel (SPTLDV)</h3></div>
+                <div class="text-slate-300 text-sm leading-relaxed space-y-4 bg-slate-950 p-6 rounded-xl border border-slate-800">
+                    <p><strong>A. Pengertian Dasar</strong><br>SPTLDV adalah kumpulan dari dua atau lebih pertidaksamaan linear yang memuat dua variabel (biasanya \(x\) dan \(y\)). Berbeda dengan persamaan biasa yang hasilnya berupa titik garis tunggal, hasil akhir dari SPTLDV adalah sebuah **Daerah Penyelesaian (DP)** yang diarsir pada grafik Kartesius.</p>
+                    <p>Bentuk umumnya menyerupai: <span class="text-cyan-400 font-mono block my-1">\(ax + by \leq c\), \(ax + by \geq c\), \(ax + by < c\), atau \(ax + by > c\)</span></p>
+                    <div class="border-l-4 border-cyan-500 bg-slate-900 p-3 rounded">
+                        <strong>⚠️ Aturan Jenis Garis Batas:</strong>
+                        <ul class="list-disc pl-5 text-xs text-slate-400 space-y-1 mt-1">
+                            <li>Menggunakan **Garis Tegas/Utuh** jika simbol pertidaksamaan memakai sama dengan (\(\leq\) atau \(\geq\)).</li>
+                            <li>Menggunakan **Garis Putus-putus** jika simbol tidak memakai sama dengan (\(<\) atau \(>\)).</li>
+                        </ul>
+                    </div>
+                    <p><strong>B. Langkah Sakti Menentukan Daerah Penyelesaian (DP)</strong></p>
+                    <ol class="list-decimal pl-5 space-y-3 text-slate-400">
+                        <li><strong class="text-slate-200">Mencari Titik Potong (Tipot):</strong> Anggap sebagai persamaan (\(=\)). Ganti \(x = 0\) untuk mencari tipot sumbu \(y\), dan ganti \(y = 0\) untuk mencari tipot sumbu \(x\).</li>
+                        <li><strong class="text-slate-200">Uji Titik Selidik:</strong> Ambil titik \((0,0)\), substitusikan ke pertidaksamaan asal. Jika <span class="text-green-400 font-semibold">BENAR</span>, arsir ke arah \((0,0)\). Jika <span class="text-rose-400 font-semibold">SALAH</span>, arsir menjauhi \((0,0)\).</li>
+                        <li><strong class="text-slate-200">Irisan Sistem:</strong> Daerah penyelesaian akhir adalah daerah yang terkena tumpukan arsiran dari seluruh pertidaksamaan.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div id="block-materi-trigonometri" class="content-block hidden space-y-6">
+                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-purple-400">📐 Materi Lengkap: Trigonometri (Perbandingan Sudut & Segitiga)</h3></div>
+                <div class="text-slate-300 text-sm leading-relaxed space-y-4 bg-slate-950 p-6 rounded-xl border border-slate-800">
+                    <p><strong>A. Perbandingan Dasar Segitiga Siku-Siku</strong><br>Trigonometri mempelajari hubungan antara panjang sisi dan besar sudut pada segitiga.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center font-bold text-xs">
+                        <div class="bg-slate-900 p-3 rounded-lg border border-purple-500/20"><span class="text-cyan-400 block mb-1">$$\sin \theta = \frac{\text{Depan}}{\text{Miring}}$$</span><span class="text-slate-500">(Demi)</span></div>
+                        <div class="bg-slate-900 p-3 rounded-lg border border-purple-500/20"><span class="text-purple-400 block mb-1">$$\cos \theta = \frac{\text{Samping}}{\text{Miring}}$$</span><span class="text-slate-500">(Sami)</span></div>
+                        <div class="bg-slate-900 p-3 rounded-lg border border-purple-500/20"><span class="text-rose-400 block mb-1">$$\tan \theta = \frac{\text{Depan}}{\text{Samping}}$$</span><span class="text-slate-500">(Desa)</span></div>
+                    </div>
+                    <p><strong>B. Tabel Sudut Istimewa (Kuadran I)</strong></p>
+                    <div class="overflow-x-auto"><table class="w-full text-center text-xs border border-slate-800 rounded-lg">
+                        <thead class="bg-slate-900 text-slate-300">
+                            <tr><th class="p-2 border border-slate-800 text-left">Fungsi</th><th class="p-2 border border-slate-800">0°</th><th class="p-2 border border-slate-800">30°</th><th class="p-2 border border-slate-800">45°</th><th class="p-2 border border-slate-800">60°</th><th class="p-2 border border-slate-800">90°</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-800"><td class="p-2 font-bold text-cyan-400 text-left">Sin</td><td>0</td><td>1/2</td><td>\(\frac{1}{2}\sqrt{2}\)</td><td>\(\frac{1}{2}\sqrt{3}\)</td><td>1</td></tr>
+                            <tr class="border-b border-slate-800"><td class="p-2 font-bold text-purple-400 text-left">Cos</td><td>1</td><td>\(\frac{1}{2}\sqrt{3}\)</td><td>\(\frac{1}{2}\sqrt{2}\)</td><td>1/2</td><td>0</td></tr>
+                            <tr><td class="p-2 font-bold text-rose-400 text-left">Tan</td><td>0</td><td>\(\frac{1}{3}\sqrt{3}\)</td><td>1</td><td>\(\sqrt{3}\)</td><td>\(\infty\)</td></tr>
+                        </tbody>
+                    </table></div>
+                    <p><strong>C. Pembagian Wilayah Kuadran</strong><br>Cara gampang hafal nilai positifnya pake kalimat: <strong>"Semua Sindikat Tangan Kosong"</strong></p>
+                    <ul class="list-disc pl-5 text-xs text-slate-400 space-y-1">
+                        <li><strong>Kuadran I (0°-90°):</strong> Semuanya positif.</li>
+                        <li><strong>Kuadran II (90°-180°):</strong> Cuma fungsi <strong>Sin</strong> yang positif.</li>
+                        <li><strong>Kuadran III (180°-270°):</strong> Cuma fungsi <strong>Tan</strong> yang positif.</li>
+                        <li><strong>Kuadran IV (270°-360°):</strong> Cuma fungsi <strong>Cos</strong> yang positif.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="block-materi-statistika" class="content-block hidden space-y-6">
+                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-rose-400">📈 Materi Lengkap: Statistika (Analisis Data Tunggal)</h3></div>
+                <div class="text-slate-300 text-sm leading-relaxed space-y-4 bg-slate-950 p-6 rounded-xl border border-slate-800">
+                    <p><strong>A. Ukuran Pemusatan Data</strong></p>
+                    <div class="space-y-3">
+                        <div class="bg-slate-900 p-3 rounded border border-slate-800">
+                            <strong class="text-cyan-400 text-xs sm:text-sm block">1. Mean (Rata-rata Hitung)</strong>
+                            <span class="text-cyan-400 font-mono text-xs block mt-1">$$\bar{x} = \frac{\sum x}{n}$$</span>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-800">
+                            <strong class="text-purple-400 text-xs sm:text-sm block">2. Median (Nilai Tengah)</strong>
+                            <p class="text-xs text-slate-400 mt-1"><span class="text-rose-400 font-bold">Wajib!</span> Urutkan data dari yang terkecil hingga terbesar terlebih dahulu.</p>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-800">
+                            <strong class="text-rose-400 text-xs sm:text-sm block">3. Modus (Mo)</strong>
+                            <p class="text-xs text-slate-400 mt-1">Nilai data yang paling sering muncul atau memiliki frekuensi tertinggi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KELOMPOK 2: LATIHAN SOAL -->
+            <div id="block-soal-spltdv" class="content-block hidden space-y-4">
+                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-cyan-400">📝 Latihan: SPTLDV Challenge</h3></div>
+                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
+                    <p class="text-sm font-medium"><strong>Soal:</strong> Tentukan daerah penyelesaian dari sistem pertidaksamaan: <br><span class="text-cyan-400 font-mono block mt-1">$$2x + 3y \leq 12$$ $$x \geq 0, y \geq 0$$</span></p>
+                    <details class="group bg-slate-900 border border-slate-800 rounded-lg p-3">
+                        <summary class="font-bold text-xs cursor-pointer text-cyan-400 flex justify-between items-center"><span>👀 UNBOXING SOLUSI</span><span>▼</span></summary>
+                        <div class="mt-3 text-xs sm:text-sm text-slate-400 space-y-1 border-t border-slate-800 pt-2">
+                            <p><strong>• Garis \(2x + 3y = 12\):</strong> Titik potongnya di <strong>(0,4)</strong> dan <strong>(6,0)</strong>.</p>
+                            <p><strong>• Tes Titik (0,0):</strong> \(0 \leq 12\) (<span class="text-green-400 font-bold">BENAR</span>), daerah mengarah ke poros (0,0).</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div id="block-soal-trigonometri" class="content-block hidden space-y-4">
+                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-purple-400">📝 Latihan: Trigonometri Real-Life Case</h3></div>
+                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
+                    <p class="text-sm font-medium"><strong>Soal:</strong> Sebuah tangga 6 meter disandarkan dengan sudut kemiringan 60° terhadap lantai. Berapa tinggi tembok?</p>
+                    <details class="group bg-slate-900 border border-slate-800 rounded-lg p-3">
+                        <summary class="font-bold text-xs cursor-pointer text-purple-400 flex justify-between items-center"><span>👀 UNBOXING SOLUSI</span><span>▼</span></summary>
+                        <div class="mt-3 text-xs sm:text-sm text-slate-400 border-t border-slate-800 pt-2 font-mono text-center">
+                            <div>$$\sin 60^\circ = \frac{\text{Tinggi}}{6} \rightarrow \frac{1}{2}\sqrt{3} = \frac{\text{Tinggi}}{6}$$</div>
+                            <div class="text-white mt-1">Tinggi = \(3\sqrt{3}\) meter</div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div id="block-soal-statistika" class="content-block hidden space-y-4">
+                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-rose-400">📝 Latihan: Statistika Data Analytics</h3></div>
+                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
+                    <p class="text-sm font-medium"><strong>Soal:</strong> Data nilai kuis matematika: <span class="text-rose-400 font-mono">7, 8, 6, 8, 9</span>. Hitung nilai Mean, Median, dan Modusnya!</p>
+                    <details class="group bg-slate-900 border border-slate-800 rounded-lg p-3">
+                        <summary class="font-bold text-xs cursor-pointer text-rose-400 flex justify-between items-center"><span>👀 UNBOXING SOLUSI</span><span>▼</span></summary>
+                        <div class="mt-3 text-xs sm:text-sm text-slate-400 space-y-1 border-t border-slate-800 pt-2">
+                            <p><strong>• Urutan Data:</strong> \(6, 7, \mathbf{8}, 8, 9\)</p>
+                            <p><strong>• Mean:</strong> \(38 / 5 = \mathbf{7,6}\) | <strong>Median:</strong> \(\mathbf{8}\) | <strong>Modus:</strong> \(\mathbf{8}\)</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- KELOMPOK 3: YOUTUBE LINK -->
+            <div id="block-youtube-spltdv" class="content-block hidden space-y-4 text-center py-6">
+                <h3 class="text-lg font-bold text-cyan-400 mb-2">🎬 YouTube Bedah Materi SPTLDV</h3>
+                <a href="https://www.youtube.com/results?search_query=belajar+sptldv+mudah" target="_blank" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-black py-3 px-6 rounded-xl text-xs sm:text-sm transition shadow-lg tracking-wider">
+                    🍿 NONTON PEMBAHASAN SPTLDV
+                </a>
+            </div>
+
+            <div id="block-youtube-trigonometri" class="content-block hidden space-y-4 text-center py-6">
+                <h3 class="text-lg font-bold text-purple-400 mb-2">🎬 YouTube Trik Jari Trigonometri</h3>
+                <a href="https://www.youtube.com/results?search_query=trik+trigonometri+sudut+istimewa" target="_blank" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-black py-3 px-6 rounded-xl text-xs sm:text-sm transition shadow-lg tracking-wider">
+                    🍿 NONTON TRIK TRIGONOMETRI
+                </a>
+            </div>
+
+            <div id="block-youtube-statistika" class="content-block hidden space-y-4 text-center py-6">
+                <h3 class="text-lg font-bold text-rose-400 mb-2">🎬 YouTube Kupas Tuntas Statistika</h3>
+                <a href="https://www.youtube.com/results?search_query=statistika+data+tunggal+kelas+10" target="_blank" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-black py-3 px-6 rounded-xl text-xs sm:text-sm transition shadow-lg tracking-wider">
+                    🍿 NONTON VIDEO STATISTIKA
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-8 text-[10px] text-slate-600 border-t border-slate-900 mt-12">
+        <p>© 2026 siswantoropamungkas | Math is Fun. Designed for Gen-Z learners.</p>
+    </footer>
+
+    <!-- INTERACTIVE ENGINE MATRIX (JAVASCRIPT BULLETPROOF) -->
+    <script>
+        // State awal sistem navigasi
+        let currentMenu = 'materi';
+        let currentTopic = 'spltdv';
+
+        function showContent() {
+            // 1. Ambil semua elemen block konten dan sembunyikan total
+            const blocks = document.querySelectorAll('.content-block');
+            blocks.forEach(block => {
+                block.style.display = 'none';
+            });
+
+            // 2. Tampilkan block aktif berdasarkan kombinasi ID Matrix
+            const activeBlock = document.getElementById(`block-${currentMenu}-${currentTopic}`);
+            if (activeBlock) {
+                activeBlock.style.display = 'block';
+            }
+
+            // 3. Reset & Sinkronisasi visual tombol Menu Utama (Tier 1)
+            document.getElementById('btn-materi').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-slate-900 text-slate-400";
+            document.getElementById('btn-soal').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-slate-900 text-slate-400";
+            document.getElementById('btn-youtube').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-slate-900 text-slate-400";
+
+            if (currentMenu === 'materi') {
+                document.getElementById('btn-materi').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/20";
+            } else if (currentMenu === 'soal') {
+                document.getElementById('btn-soal').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-purple-500 text-white shadow-lg shadow-purple-500/20";
+            } else if (currentMenu === 'youtube') {
+                document.getElementById('btn-youtube').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-rose-500 text-white shadow-lg shadow-rose-500/20";
+            }
+
+            // 4. Reset & Sinkronisasi visual tombol Topik (Tier 2)
+            document.getElementById('btn-spltdv').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-900 text-slate-400 border-slate-800";
+            document.getElementById('btn-trigonometri').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-900 text-slate-400 border-slate-800";
+            document.getElementById('btn-statistika').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-900 text-slate-400 border-slate-800";
+
+            if (currentTopic === 'spltdv') {
+                document.getElementById('btn-spltdv').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-950 text-cyan-400 border-cyan-500/50";
+            } else if (currentTopic === 'trigonometri') {
+                document.getElementById('btn-trigonometri').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-950 text-purple-400 border-purple-500/50";
+            } else if (currentTopic === 'statistika') {
+                document.getElementById('btn-statistika').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-950 text-rose-400 border-rose-500/50";
+            }
+
+            // 5. Trigger render ulang MathJax (opsional jika rumus kepotong)
+            if (window.MathJax && window.MathJax.typeset) {
+                window.MathJax.typeset();
+            }
+        }
+
+        // Fungsi Handler Klik
+        function setMenu(menuId) {
+            currentMenu = menuId;
+            showContent();
+        }
+
+        function setTopic(topicId) {
+            currentTopic = topicId;
+            showContent();
+        }
+
+        // Jalankan otomatis begitu seluruh DOM selesai dimuat browser HP
+        document.addEventListener("DOMContentLoaded", function() {
+            showContent();
+        });
+    </script>
+</body>
+</html>
