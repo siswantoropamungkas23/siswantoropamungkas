@@ -18,9 +18,9 @@
 
     <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <h1 class="text-2xl font-black tracking-wider gradient-text">SISWANTORO PAMUNGKAS</h1>
+            <h1 class="text-2xl font-black tracking-wider gradient-text">SISWANTO ROPAMUNGKAS</h1>
             <p class="text-xs font-semibold bg-slate-800 text-cyan-400 px-3 py-1 rounded-full border border-cyan-500/30 shadow-lg shadow-cyan-500/10">
-                🚀 Math Will Give You Some Fun!!
+                🚀 Math Will Give You Some Fun!
             </p>
         </div>
     </header>
@@ -28,7 +28,7 @@
     <main class="max-w-6xl mx-auto px-4 py-8">
         
         <section class="text-center my-6 max-w-2xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">Mau belajar Matematika tanpa ribet? kuys lah!</h2>
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-3!">Bingung cari website belajar dimana? Yuks lah belajar disini aja</h2>
             <p class="text-slate-400 text-xs sm:text-sm">Materi lengkap, latihan interaktif, dan video YouTube dalam satu genggaman. Pilih menu utama lalu ulik topiknya sampai paham!</p>
         </section>
 
@@ -228,4 +228,75 @@
             <div id="block-youtube-trigonometri" class="content-block hidden space-y-4 text-center py-6">
                 <h3 class="text-lg font-bold text-purple-400 mb-2">🎬 YouTube Trik Jari Trigonometri</h3>
                 <p class="text-slate-400 text-xs mb-4">Cara gampang hafal sudut istimewa pake trik jari tangan tanpa pusing hafalan tabel rumus.</p>
-                <a href="https://www.youtube.com/results?search_query=trik+trigonometri+sudut+istimewa" target="_blank" class="inline-flex items-center gap-2 bg-rose-600 hover:
+                <a href="https://www.youtube.com/results?search_query=trik+trigonometri+sudut+istimewa" target="_blank" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-black py-3 px-6 rounded-xl text-xs sm:text-sm transition shadow-lg shadow-rose-600/30 tracking-wider">
+                    🍿 NONTON TRIK TRIGONOMETRI
+                </a>
+            </div>
+
+            <div id="block-youtube-statistika" class="content-block hidden space-y-4 text-center py-6">
+                <h3 class="text-lg font-bold text-rose-400 mb-2">🎬 YouTube Kupas Tuntas Statistika</h3>
+                <p class="text-slate-400 text-xs mb-4">Visualisasi cara hitung cepat Mean, Median, dan Modus data tunggal kelas 10 SMA.</p>
+                <a href="https://www.youtube.com/results?search_query=statistika+data+tunggal+kelas+10" target="_blank" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-black py-3 px-6 rounded-xl text-xs sm:text-sm transition shadow-lg shadow-rose-600/30 tracking-wider">
+                    🍿 NONTON VIDEO STATISTIKA
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-8 text-[10px] text-slate-600 border-t border-slate-900 mt-12">
+        <p>© 2026 siswantoropamungkas | Math is Fun. Designed for Gen-Z learners.</p>
+    </footer>
+
+    <script>
+        // State awal saat web pertama kali dibuka
+        let currentType = 'materi';
+        let currentTopic = 'spltdv';
+
+        // Fungsi mengganti Menu Utama (Materi/Latihan/YouTube)
+        function switchType(typeId) {
+            currentType = typeId;
+            updateUI();
+        }
+
+        // Fungsi mengganti Sub-Menu Materi (SPLTDV/Trigono/Statistika)
+        function switchTopic(topicId) {
+            currentTopic = topicId;
+            updateUI();
+        }
+
+        // Engine sinkronisasi UI Matrix
+        function updateUI() {
+            // 1. Sembunyikan semua blok konten terlebih dahulu
+            document.querySelectorAll('.content-block').forEach(block => block.classList.add('hidden'));
+
+            // 2. Tampilkan kombinasi blok yang aktif saat ini
+            const targetBlock = document.getElementById(`block-${currentType}-${currentTopic}`);
+            if (targetBlock) {
+                targetBlock.classList.remove('hidden');
+            }
+
+            // 3. Update Visual Style Tombol Menu Utama (Tier 1)
+            document.querySelectorAll('.type-btn').forEach(btn => {
+                btn.className = "type-btn flex-1 py-3 rounded-xl font-black text-sm transition-all duration-300 bg-transparent text-slate-400 hover:text-white";
+            });
+            const activeTypeBtn = document.getElementById(`btn-type-${currentType}`);
+            if (currentType === 'materi') activeTypeBtn.className = "type-btn flex-1 py-3 rounded-xl font-black text-sm transition-all duration-300 bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/20";
+            if (currentType === 'soal') activeTypeBtn.className = "type-btn flex-1 py-3 rounded-xl font-black text-sm transition-all duration-300 bg-purple-500 text-white shadow-lg shadow-purple-500/20";
+            if (currentType === 'youtube') activeTypeBtn.className = "type-btn flex-1 py-3 rounded-xl font-black text-sm transition-all duration-300 bg-rose-500 text-white shadow-lg shadow-rose-600/20";
+
+            // 4. Update Visual Style Tombol Sub-Menu Materi (Tier 2)
+            document.querySelectorAll('.topic-btn').forEach(btn => {
+                btn.className = "topic-btn px-5 py-2.5 rounded-xl text-xs font-bold border transition-all duration-300 shadow-md bg-slate-900 text-slate-400 border-slate-800 hover:border-slate-700";
+            });
+            const activeTopicBtn = document.getElementById(`btn-topic-${currentTopic}`);
+            if (currentTopic === 'spltdv') activeTopicBtn.className = "topic-btn px-5 py-2.5 rounded-xl text-xs font-bold border transition-all duration-300 shadow-md bg-slate-950 text-cyan-400 border-cyan-500/50 shadow-cyan-500/5";
+            if (currentTopic === 'trigonometri') activeTopicBtn.className = "topic-btn px-5 py-2.5 rounded-xl text-xs font-bold border transition-all duration-300 shadow-md bg-slate-950 text-purple-400 border-purple-500/50 shadow-purple-500/5";
+            if (currentTopic === 'statistika') activeTopicBtn.className = "topic-btn px-5 py-2.5 rounded-xl text-xs font-bold border transition-all duration-300 shadow-md bg-slate-950 text-rose-400 border-rose-500/50 shadow-rose-500/5";
+        }
+
+        // Jalankan UI engine pertama kali pas reload
+        updateUI();
+    </script>
+</body>
+</html>
