@@ -3,288 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>siswantoropamungkas | Math Masterclass</title>
-    <!-- Tailwind CSS Resmi (Sudah Diperbaiki) -->
+    <title>GRIDFORCE | Cosmic Math Terminal 🚀</title>
+    <!-- Tailwind CSS Resmi -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- MathJax Resmi untuk Rumus Matematika -->
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Font Futuristik & Sci-Fi Command Deck -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        .gradient-text {
-            background: linear-gradient(to right, #22d3ee, #a855f7, #f43f5e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #030712;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hud-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .hud-panel {
+            background: rgba(3, 7, 18, 0.45);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        /* Animasi Bintang Berkedip di Latar Belakang Cosmic */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.1); }
+        }
+        .cosmic-core {
+            animation: pulseGlow 8s infinite ease-in-out;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans selection:bg-purple-500 selection:text-white">
+<body id="cosmic-body" class="text-slate-100 min-h-screen p-3 sm:p-6 flex flex-col justify-between relative overflow-x-hidden selection:bg-indigo-500 selection:text-white">
 
-    <!-- HEADER / BANNER -->
-    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <h1 class="text-2xl font-black tracking-wider gradient-text">SISWANTORO PAMUNGKAS</h1>
-            <p class="text-xs font-semibold bg-slate-800 text-cyan-400 px-3 py-1 rounded-full border border-cyan-500/30 shadow-lg shadow-cyan-500/10">
-                🚀 Math Will Give You Some Fun!!
-            </p>
+    <!-- DYNAMIC BACKGROUND ORBITAL GLOW -->
+    <div id="glow-orb-1" class="cosmic-core absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[160px] pointer-events-none transition-all duration-700"></div>
+    <div id="glow-orb-2" class="cosmic-core absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none transition-all duration-700"></div>
+
+    <!-- MAIN COMMAND HUD HEADER -->
+    <header class="max-w-5xl w-full mx-auto hud-panel p-5 rounded-xl border flex flex-col md:flex-row justify-between items-center gap-4 mb-6 relative z-10">
+        <div class="text-center md:text-left space-y-1">
+            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1 rounded-md text-[9px] hud-font font-bold tracking-[0.2em] text-indigo-400 uppercase">
+                🛰️ LINK STATUS: SECURE // GRIDFORCEE.COM
+            </div>
+            <h1 class="hud-font text-2xl font-black tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-500">
+                GRIDFORCE MATHEMATICS TERMINAL
+            </h1>
+            <p class="text-[11px] font-semibold text-slate-400 tracking-wide">Sistem Navigasi & Pemetaan Logika Kalkulus Kelas 10 SMA</p>
+        </div>
+        
+        <!-- WARP DRIVE ENGINE ENGINE SELECTOR -->
+        <div class="bg-black/40 p-1 rounded-lg border border-white/10 flex gap-1 w-full md:w-auto justify-between">
+            <div class="flex gap-1 w-full">
+                <button onclick="engageWarp('nebula')" id="w-nebula" class="px-3 py-1.5 rounded text-[10px] hud-font font-black tracking-wider transition-all duration-300 w-full">
+                    🌌 NEBULA
+                </button>
+                <button onclick="engageWarp('supernova')" id="w-supernova" class="px-3 py-1.5 rounded text-[10px] hud-font font-black tracking-wider transition-all duration-300 w-full">
+                    💥 SUPERNOVA
+                </button>
+                <button onclick="engageWarp('horizon')" id="w-horizon" class="px-3 py-1.5 rounded text-[10px] hud-font font-black tracking-wider transition-all duration-300 w-full">
+                    🕳️ HORIZON
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT CONTAINER -->
-    <main class="max-w-6xl mx-auto px-4 py-8">
+    <!-- MAIN INTERACTIVE ORBIT GRID -->
+    <main class="max-w-5xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 relative z-10 flex-grow">
         
-        <!-- INTRO HERO -->
-        <section class="text-center my-6 max-w-2xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">Taklukin Matematika Tanpa Ribet!</h2>
-            <p class="text-slate-400 text-xs sm:text-sm">Materi lengkap, latihan interaktif, dan video YouTube dalam satu genggaman. Pilih menu utama lalu ulik topiknya sampai paham!</p>
+        <!-- SIDEBAR LEFT: QUANTUM MATRIX MODULES (4 COLUMNS) -->
+        <section class="lg:col-span-4 flex flex-col gap-3">
+            <span class="text-[9px] hud-font font-bold text-slate-500 tracking-[0.25em] uppercase px-1">▼ SELECT_SECTOR_DATA</span>
+            
+            <button onclick="jumpSector('sptldv')" id="s-sptldv" class="w-full p-4 rounded-xl text-left hud-panel border transition-all duration-300 group">
+                <div class="text-[9px] hud-font text-slate-500 font-bold tracking-widest group-hover:text-white transition">[ SYS_MOD_01 ]</div>
+                <h3 class="font-bold text-sm text-slate-200 hud-font mt-0.5 tracking-wide">SPTLDV MATRIX</h3>
+                <p class="text-[11px] text-slate-400 mt-1">Sistem Linear & Geometri Batas Sumbu</p>
+            </button>
+
+            <button onclick="jumpSector('trigo')" id="s-trigo" class="w-full p-4 rounded-xl text-left hud-panel border transition-all duration-300 group">
+                <div class="text-[9px] hud-font text-slate-500 font-bold tracking-widest group-hover:text-white transition">[ SYS_MOD_02 ]</div>
+                <h3 class="font-bold text-sm text-slate-200 hud-font mt-0.5 tracking-wide">TRIGONOMETRI ORBIT</h3>
+                <p class="text-[11px] text-slate-400 mt-1">Rasio Vektor Siku & Polaritas Kuadran</p>
+            </button>
+
+            <button onclick="jumpSector('stats')" id="s-stats" class="w-full p-4 rounded-xl text-left hud-panel border transition-all duration-300 group">
+                <div class="text-[9px] hud-font text-slate-500 font-bold tracking-widest group-hover:text-white transition">[ SYS_MOD_03 ]</div>
+                <h3 class="font-bold text-sm text-slate-200 hud-font mt-0.5 tracking-wide">STATISTIKA VECTOR</h3>
+                <p class="text-[11px] text-slate-400 mt-1">Pemusatan Frekuensi & Reduksi Range</p>
+            </button>
         </section>
 
-        <!-- TIER 1: MENU UTAMA (Materi, Latihan, YouTube) -->
-        <div class="text-center mb-6">
-            <span class="text-xs font-bold text-slate-500 tracking-widest uppercase block mb-2">⚡ PILIH MENU UTAMA</span>
-            <nav class="flex justify-center gap-3 bg-slate-900/60 p-2 rounded-2xl border border-slate-800 max-w-xl mx-auto">
-                <button onclick="setMenu('materi')" id="btn-materi" class="flex-1 py-3 rounded-xl font-black text-sm transition">
-                    📚 MATERI
-                </button>
-                <button onclick="setMenu('soal')" id="btn-soal" class="flex-1 py-3 rounded-xl font-black text-sm transition">
-                    📝 LATIHAN
-                </button>
-                <button onclick="setMenu('youtube')" id="btn-youtube" class="flex-1 py-3 rounded-xl font-black text-sm transition">
-                    🎬 YOUTUBE
-                </button>
-            </nav>
-        </div>
-
-        <!-- TIER 2: SUB-MENU MATERI (SPLTDV, Trigono, Statistika) -->
-        <div class="text-center mb-10">
-            <span class="text-xs font-bold text-slate-500 tracking-widest uppercase block mb-2">📌 PILIH TOPIK MATERI</span>
-            <nav class="flex flex-wrap justify-center gap-3">
-                <button onclick="setTopic('spltdv')" id="btn-spltdv" class="px-5 py-2.5 rounded-xl text-xs font-bold border transition shadow-md">
-                    📊 1. SPTLDV
-                </button>
-                <button onclick="setTopic('trigonometri')" id="btn-trigonometri" class="px-5 py-2.5 rounded-xl text-xs font-bold border transition shadow-md">
-                    📐 2. TRIGONOMETRI
-                </button>
-                <button onclick="setTopic('statistika')" id="btn-statistika" class="px-5 py-2.5 rounded-xl text-xs font-bold border transition shadow-md">
-                    📈 3. STATISTIKA
-                </button>
-            </nav>
-        </div>
-
-        <!-- CONTAINER BLOCK KONTEN UTAMA -->
-        <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 sm:p-8 backdrop-blur shadow-2xl min-h-[400px]">
-            
-            <!-- ==================== TABS MATRIX CONTENT ==================== -->
-
-            <!-- KELOMPOK 1: MATERI -->
-            <div id="block-materi-spltdv" class="content-block hidden space-y-6">
-                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-cyan-400">📊 Materi Lengkap: Sistem Pertidaksamaan Linear Dua Variabel (SPTLDV)</h3></div>
-                <div class="text-slate-300 text-sm leading-relaxed space-y-4 bg-slate-950 p-6 rounded-xl border border-slate-800">
-                    <p><strong>A. Pengertian Dasar</strong><br>SPTLDV adalah kumpulan dari dua atau lebih pertidaksamaan linear yang memuat dua variabel (biasanya \(x\) dan \(y\)). Berbeda dengan persamaan biasa yang hasilnya berupa titik garis tunggal, hasil akhir dari SPTLDV adalah sebuah **Daerah Penyelesaian (DP)** yang diarsir pada grafik Kartesius.</p>
-                    <p>Bentuk umumnya menyerupai: <span class="text-cyan-400 font-mono block my-1">\(ax + by \leq c\), \(ax + by \geq c\), \(ax + by < c\), atau \(ax + by > c\)</span></p>
-                    <div class="border-l-4 border-cyan-500 bg-slate-900 p-3 rounded">
-                        <strong>⚠️ Aturan Jenis Garis Batas:</strong>
-                        <ul class="list-disc pl-5 text-xs text-slate-400 space-y-1 mt-1">
-                            <li>Menggunakan **Garis Tegas/Utuh** jika simbol pertidaksamaan memakai sama dengan (\(\leq\) atau \(\geq\)).</li>
-                            <li>Menggunakan **Garis Putus-putus** jika simbol tidak memakai sama dengan (\(<\) atau \(>\)).</li>
-                        </ul>
+        <!-- MAIN MONITOR CONSOLE AREA (8 COLUMNS) -->
+        <section class="lg:col-span-8 flex">
+            <div class="hud-panel rounded-2xl p-6 sm:p-8 border w-full flex flex-col justify-between min-h-[520px]">
+                
+                <div class="space-y-6">
+                    <!-- MONITOR SUB-BANNER -->
+                    <div class="border-b border-white/10 pb-4">
+                        <span id="sector-tag" class="text-[9px] hud-font px-2.5 py-1 rounded bg-black/50 border font-bold tracking-widest"></span>
+                        <h2 id="sector-title" class="text-xl font-bold text-white hud-font tracking-wide mt-3"></h2>
                     </div>
-                    <p><strong>B. Langkah Sakti Menentukan Daerah Penyelesaian (DP)</strong></p>
-                    <ol class="list-decimal pl-5 space-y-3 text-slate-400">
-                        <li><strong class="text-slate-200">Mencari Titik Potong (Tipot):</strong> Anggap sebagai persamaan (\(=\)). Ganti \(x = 0\) untuk mencari tipot sumbu \(y\), dan ganti \(y = 0\) untuk mencari tipot sumbu \(x\).</li>
-                        <li><strong class="text-slate-200">Uji Titik Selidik:</strong> Ambil titik \((0,0)\), substitusikan ke pertidaksamaan asal. Jika <span class="text-green-400 font-semibold">BENAR</span>, arsir ke arah \((0,0)\). Jika <span class="text-rose-400 font-semibold">SALAH</span>, arsir menjauhi \((0,0)\).</li>
-                        <li><strong class="text-slate-200">Irisan Sistem:</strong> Daerah penyelesaian akhir adalah daerah yang terkena tumpukan arsiran dari seluruh pertidaksamaan.</li>
-                    </ol>
-                </div>
-            </div>
 
-            <div id="block-materi-trigonometri" class="content-block hidden space-y-6">
-                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-purple-400">📐 Materi Lengkap: Trigonometri (Perbandingan Sudut & Segitiga)</h3></div>
-                <div class="text-slate-300 text-sm leading-relaxed space-y-4 bg-slate-950 p-6 rounded-xl border border-slate-800">
-                    <p><strong>A. Perbandingan Dasar Segitiga Siku-Siku</strong><br>Trigonometri mempelajari hubungan antara panjang sisi dan besar sudut pada segitiga.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center font-bold text-xs">
-                        <div class="bg-slate-900 p-3 rounded-lg border border-purple-500/20"><span class="text-cyan-400 block mb-1">$$\sin \theta = \frac{\text{Depan}}{\text{Miring}}$$</span><span class="text-slate-500">(Demi)</span></div>
-                        <div class="bg-slate-900 p-3 rounded-lg border border-purple-500/20"><span class="text-purple-400 block mb-1">$$\cos \theta = \frac{\text{Samping}}{\text{Miring}}$$</span><span class="text-slate-500">(Sami)</span></div>
-                        <div class="bg-slate-900 p-3 rounded-lg border border-purple-500/20"><span class="text-rose-400 block mb-1">$$\tan \theta = \frac{\text{Depan}}{\text{Samping}}$$</span><span class="text-slate-500">(Desa)</span></div>
+                    <!-- HUD DESCRIPTION BOX -->
+                    <div class="bg-black/40 border border-white/5 p-5 rounded-xl space-y-2">
+                        <h4 class="text-[10px] hud-font font-bold text-slate-400 tracking-widest uppercase">// INTEL_BRIEF_ANALYSIS:</h4>
+                        <p id="sector-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium tracking-wide"></p>
                     </div>
-                    <p><strong>B. Tabel Sudut Istimewa (Kuadran I)</strong></p>
-                    <div class="overflow-x-auto"><table class="w-full text-center text-xs border border-slate-800 rounded-lg">
-                        <thead class="bg-slate-900 text-slate-300">
-                            <tr><th class="p-2 border border-slate-800 text-left">Fungsi</th><th class="p-2 border border-slate-800">0°</th><th class="p-2 border border-slate-800">30°</th><th class="p-2 border border-slate-800">45°</th><th class="p-2 border border-slate-800">60°</th><th class="p-2 border border-slate-800">90°</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b border-slate-800"><td class="p-2 font-bold text-cyan-400 text-left">Sin</td><td>0</td><td>1/2</td><td>\(\frac{1}{2}\sqrt{2}\)</td><td>\(\frac{1}{2}\sqrt{3}\)</td><td>1</td></tr>
-                            <tr class="border-b border-slate-800"><td class="p-2 font-bold text-purple-400 text-left">Cos</td><td>1</td><td>\(\frac{1}{2}\sqrt{3}\)</td><td>\(\frac{1}{2}\sqrt{2}\)</td><td>1/2</td><td>0</td></tr>
-                            <tr><td class="p-2 font-bold text-rose-400 text-left">Tan</td><td>0</td><td>\(\frac{1}{3}\sqrt{3}\)</td><td>1</td><td>\(\sqrt{3}\)</td><td>\(\infty\)</td></tr>
-                        </tbody>
-                    </table></div>
-                    <p><strong>C. Pembagian Wilayah Kuadran</strong><br>Cara gampang hafal nilai positifnya pake kalimat: <strong>"Semua Sindikat Tangan Kosong"</strong></p>
-                    <ul class="list-disc pl-5 text-xs text-slate-400 space-y-1">
-                        <li><strong>Kuadran I (0°-90°):</strong> Semuanya positif.</li>
-                        <li><strong>Kuadran II (90°-180°):</strong> Cuma fungsi <strong>Sin</strong> yang positif.</li>
-                        <li><strong>Kuadran III (180°-270°):</strong> Cuma fungsi <strong>Tan</strong> yang positif.</li>
-                        <li><strong>Kuadran IV (270°-360°):</strong> Cuma fungsi <strong>Cos</strong> yang positif.</li>
-                    </ul>
-                </div>
-            </div>
 
-            <div id="block-materi-statistika" class="content-block hidden space-y-6">
-                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-rose-400">📈 Materi Lengkap: Statistika (Analisis Data Tunggal)</h3></div>
-                <div class="text-slate-300 text-sm leading-relaxed space-y-4 bg-slate-950 p-6 rounded-xl border border-slate-800">
-                    <p><strong>A. Ukuran Pemusatan Data</strong></p>
-                    <div class="space-y-3">
-                        <div class="bg-slate-900 p-3 rounded border border-slate-800">
-                            <strong class="text-cyan-400 text-xs sm:text-sm block">1. Mean (Rata-rata Hitung)</strong>
-                            <span class="text-cyan-400 font-mono text-xs block mt-1">$$\bar{x} = \frac{\sum x}{n}$$</span>
+                    <!-- TELEMETRY DATA MATRIX -->
+                    <div id="telemetry-matrix" class="hud-font text-xs p-4 rounded-xl border bg-black/60">
+                        <!-- Dynamic code injection -->
+                    </div>
+
+                    <!-- HYPERDRIVE QUIZ PANEL -->
+                    <div class="bg-gradient-to-br from-black/60 to-slate-900/20 p-5 rounded-xl border border-white/5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
+                            <h4 class="text-[10px] hud-font font-bold uppercase tracking-widest text-slate-400">Target Verification Checkpoint</h4>
                         </div>
-                        <div class="bg-slate-900 p-3 rounded border border-slate-800">
-                            <strong class="text-purple-400 text-xs sm:text-sm block">2. Median (Nilai Tengah)</strong>
-                            <p class="text-xs text-slate-400 mt-1"><span class="text-rose-400 font-bold">Wajib!</span> Urutkan data dari yang terkecil hingga terbesar terlebih dahulu.</p>
+                        <p id="quiz-prompt" class="text-xs sm:text-sm text-slate-200 font-bold tracking-wide leading-relaxed"></p>
+                        
+                        <!-- Choice Matrix Grid -->
+                        <div id="quiz-grid-options" class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                            <!-- Injected choices -->
                         </div>
-                        <div class="bg-slate-900 p-3 rounded border border-slate-800">
-                            <strong class="text-rose-400 text-xs sm:text-sm block">3. Modus (Mo)</strong>
-                            <p class="text-xs text-slate-400 mt-1">Nilai data yang paling sering muncul atau memiliki frekuensi tertinggi.</p>
-                        </div>
+                        
+                        <!-- Telemetry Alert Feedback -->
+                        <div id="quiz-hud-alert" class="hidden text-xs hud-font font-bold p-3 rounded-lg text-center border transition-all duration-300"></div>
                     </div>
                 </div>
-            </div>
 
-            <!-- KELOMPOK 2: LATIHAN SOAL -->
-            <div id="block-soal-spltdv" class="content-block hidden space-y-4">
-                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-cyan-400">📝 Latihan: SPTLDV Challenge</h3></div>
-                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
-                    <p class="text-sm font-medium"><strong>Soal:</strong> Tentukan daerah penyelesaian dari sistem pertidaksamaan: <br><span class="text-cyan-400 font-mono block mt-1">$$2x + 3y \leq 12$$ $$x \geq 0, y \geq 0$$</span></p>
-                    <details class="group bg-slate-900 border border-slate-800 rounded-lg p-3">
-                        <summary class="font-bold text-xs cursor-pointer text-cyan-400 flex justify-between items-center"><span>👀 UNBOXING SOLUSI</span><span>▼</span></summary>
-                        <div class="mt-3 text-xs sm:text-sm text-slate-400 space-y-1 border-t border-slate-800 pt-2">
-                            <p><strong>• Garis \(2x + 3y = 12\):</strong> Titik potongnya di <strong>(0,4)</strong> dan <strong>(6,0)</strong>.</p>
-                            <p><strong>• Tes Titik (0,0):</strong> \(0 \leq 12\) (<span class="text-green-400 font-bold">BENAR</span>), daerah mengarah ke poros (0,0).</p>
-                        </div>
-                    </details>
+                <!-- EXTERNAL ROUTER NAVIGATION CONTROL -->
+                <div class="pt-6 border-t border-white/10 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p class="text-[10px] hud-font text-slate-500 font-bold tracking-widest">SYSTEM_STATUS: WEAPONS_READY // ENG_OK</p>
+                    <a id="warp-video-btn" href="#" target="_blank" class="w-full sm:w-auto text-center px-6 py-3 text-slate-950 font-black text-xs hud-font tracking-widest uppercase rounded-lg transition duration-300 shadow-lg">
+                        OPEN_TRANSMISSION_NODE ➔
+                    </a>
                 </div>
-            </div>
 
-            <div id="block-soal-trigonometri" class="content-block hidden space-y-4">
-                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-purple-400">📝 Latihan: Trigonometri Real-Life Case</h3></div>
-                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
-                    <p class="text-sm font-medium"><strong>Soal:</strong> Sebuah tangga 6 meter disandarkan dengan sudut kemiringan 60° terhadap lantai. Berapa tinggi tembok?</p>
-                    <details class="group bg-slate-900 border border-slate-800 rounded-lg p-3">
-                        <summary class="font-bold text-xs cursor-pointer text-purple-400 flex justify-between items-center"><span>👀 UNBOXING SOLUSI</span><span>▼</span></summary>
-                        <div class="mt-3 text-xs sm:text-sm text-slate-400 border-t border-slate-800 pt-2 font-mono text-center">
-                            <div>$$\sin 60^\circ = \frac{\text{Tinggi}}{6} \rightarrow \frac{1}{2}\sqrt{3} = \frac{\text{Tinggi}}{6}$$</div>
-                            <div class="text-white mt-1">Tinggi = \(3\sqrt{3}\) meter</div>
-                        </div>
-                    </details>
-                </div>
             </div>
+        </section>
 
-            <div id="block-soal-statistika" class="content-block hidden space-y-4">
-                <div class="border-b border-slate-800 pb-2"><h3 class="text-xl font-bold text-rose-400">📝 Latihan: Statistika Data Analytics</h3></div>
-                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
-                    <p class="text-sm font-medium"><strong>Soal:</strong> Data nilai kuis matematika: <span class="text-rose-400 font-mono">7, 8, 6, 8, 9</span>. Hitung nilai Mean, Median, dan Modusnya!</p>
-                    <details class="group bg-slate-900 border border-slate-800 rounded-lg p-3">
-                        <summary class="font-bold text-xs cursor-pointer text-rose-400 flex justify-between items-center"><span>👀 UNBOXING SOLUSI</span><span>▼</span></summary>
-                        <div class="mt-3 text-xs sm:text-sm text-slate-400 space-y-1 border-t border-slate-800 pt-2">
-                            <p><strong>• Urutan Data:</strong> \(6, 7, \mathbf{8}, 8, 9\)</p>
-                            <p><strong>• Mean:</strong> \(38 / 5 = \mathbf{7,6}\) | <strong>Median:</strong> \(\mathbf{8}\) | <strong>Modus:</strong> \(\mathbf{8}\)</p>
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- KELOMPOK 3: YOUTUBE LINK -->
-            <div id="block-youtube-spltdv" class="content-block hidden space-y-4 text-center py-6">
-                <h3 class="text-lg font-bold text-cyan-400 mb-2">🎬 YouTube Bedah Materi SPTLDV</h3>
-                <a href="https://www.youtube.com/results?search_query=belajar+sptldv+mudah" target="_blank" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-black py-3 px-6 rounded-xl text-xs sm:text-sm transition shadow-lg tracking-wider">
-                    🍿 NONTON PEMBAHASAN SPTLDV
-                </a>
-            </div>
-
-            <div id="block-youtube-trigonometri" class="content-block hidden space-y-4 text-center py-6">
-                <h3 class="text-lg font-bold text-purple-400 mb-2">🎬 YouTube Trik Jari Trigonometri</h3>
-                <a href="https://www.youtube.com/results?search_query=trik+trigonometri+sudut+istimewa" target="_blank" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-black py-3 px-6 rounded-xl text-xs sm:text-sm transition shadow-lg tracking-wider">
-                    🍿 NONTON TRIK TRIGONOMETRI
-                </a>
-            </div>
-
-            <div id="block-youtube-statistika" class="content-block hidden space-y-4 text-center py-6">
-                <h3 class="text-lg font-bold text-rose-400 mb-2">🎬 YouTube Kupas Tuntas Statistika</h3>
-                <a href="https://www.youtube.com/results?search_query=statistika+data+tunggal+kelas+10" target="_blank" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-black py-3 px-6 rounded-xl text-xs sm:text-sm transition shadow-lg tracking-wider">
-                    🍿 NONTON VIDEO STATISTIKA
-                </a>
-            </div>
-
-        </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="text-center py-8 text-[10px] text-slate-600 border-t border-slate-900 mt-12">
-        <p>© 2026 siswantoropamungkas | Math is Fun. Designed for Gen-Z learners.</p>
+    <!-- TERMINAL OUTRO FOOTER -->
+    <footer class="text-center text-[10px] hud-font text-slate-600 font-bold tracking-[0.4em] uppercase py-6 relative z-10">
+        // TERMINAL ESTABLISHED 2026 // OPERATED BY GRIDFORCE CORE //
     </footer>
 
-    <!-- INTERACTIVE ENGINE MATRIX (JAVASCRIPT BULLETPROOF) -->
+    <!-- ENGINE PROGRAM DATA & ARCHITECTURE CORE -->
     <script>
-        // State awal sistem navigasi
-        let currentMenu = 'materi';
-        let currentTopic = 'spltdv';
+        let currentSector = 'sptldv';
+        let activeWarp = 'nebula';
 
-        function showContent() {
-            // 1. Ambil semua elemen block konten dan sembunyikan total
-            const blocks = document.querySelectorAll('.content-block');
-            blocks.forEach(block => {
-                block.style.display = 'none';
+        // DATABASE MATERI LENGKAP KELAS 10 HIGHLY ADVANCED
+        const spaceDatabase = {
+            sptldv: {
+                tag: "SECTOR: ALGEBRAIC_COORDINATE",
+                title: "Sistem Pertidaksamaan Linear Dua Variabel",
+                desc: "Protokol pencarian wilayah koordinat ruang hasil tidaklah rumit. Eksekusi pertama bertumpu pada pencarian intersep sumbu ordinat X dan Y secara simultan melalui pemisalan angka nol. Tarik koordinat garis batas linier secara presisi. Langkah final: jalankan pengujian logika spasial menggunakan matriks titik pusat acuan (0,0). Jika relasi kalkulasi valid, arsir seluruh zona aman yang melingkupi ordinat (0,0) tersebut.",
+                matrix: `
+                    <p class="text-indigo-400 font-bold mb-2 tracking-wide">// BOUNDARY_LINE_RULES:</p>
+                    <p class="text-slate-400">• <span class="text-white font-bold">Solid Vector Line:</span> Diaktifkan jika parameter relasi memuat tanda kesamaan (≤ atau ≥).</p>
+                    <p class="text-slate-400">• <span class="text-white font-bold">Dashed Quantum Line:</span> Diaktifkan jika batas bersifat murni eksklusif (< atau >).</p>
+                `,
+                quiz: {
+                    prompt: "Apabila batas pemetaan daerah hasil pertidaksamaan x + y ≥ 5 diuji menggunakan koordinat core (0,0), apakah status telemetri output data bernilai BENAR atau SALAH?",
+                    choices: [
+                        { text: "STATUS: SALAH, nilai nol tidak melampaui batas matriks 5", isCorrect: true },
+                        { text: "STATUS: BENAR, koordinat nol otomatis diserap ke dalam ruang hasil", isCorrect: false }
+                    ]
+                },
+                link: "https://www.youtube.com/results?search_query=belajar+sptldv+mudah"
+            },
+            trigo: {
+                tag: "SECTOR: VECTOR_TRIGONOMETRIC",
+                title: "Trigonometri Dasar & Aturan Vektor Polaris Kuadran",
+                desc: "Trigonometri mengkalkulasi komparasi fungsional rasio panjang sisi-sisi pada segitiga siku-siku berbasis sudut acuan elevasi. Kuasai rumus algoritma memori berikut: Sin = Demi (Depan/Miring), Cos = Sami (Samping/Miring), dan Tan = Desa (Depan/Samping). Untuk melacak polaritas muatan positif di area kuadran Kartesius I-IV, gunakan hukum mutlak: ASTC (All, Sin, Tan, Cos).",
+                matrix: `
+                    <p class="text-indigo-400 font-bold mb-2 tracking-wide">// CORE_ANGLE_DATA_MATRIX (KUADRAN I):</p>
+                    <div class="grid grid-cols-4 gap-1 text-center font-mono bg-black/60 p-2 rounded border border-white/5">
+                        <span class="text-slate-500">DEG_θ:</span><span class="text-white font-bold">30°</span><span class="text-white font-bold">45°</span><span class="text-white font-bold">60°</span>
+                        <span class="text-slate-500">SIN:</span><span>1/2</span><span>1/2√2</span><span>1/2√3</span>
+                        <span class="text-slate-500">COS:</span><span>1/2√3</span><span>1/2√2</span><span>1/2</span>
+                    </div>
+                `,
+                quiz: {
+                    prompt: "Sebuah material tiang pemancar sepanjang 6 meter bersandar tegak pada modul bangunan dengan sudut elevasi tanah 60°. Tinggi vertikal bangunan dicari menggunakan fungsi rasio apa?",
+                    choices: [
+                        { text: "Menggunakan fungsi SINUS (Rasio Proyeksi Depan/Miring)", isCorrect: true },
+                        { text: "Menggunakan fungsi TANGEN (Rasio Proyeksi Depan/Samping)", isCorrect: false }
+                    ]
+                },
+                link: "https://www.youtube.com/results?search_query=trik+trigonometri+sudut+istimewa"
+            },
+            stats: {
+                tag: "SECTOR: DESCRIPTIVE_DATA_ANALYTICS",
+                title: "Statistika: Komputasi Pemusatan Data Tunggal",
+                desc: "Kalkulasi parameter reduksi statistika deskriptif pada sebaran data tunggal difokuskan pada tiga elemen utama: Mean (Nilai rata-rata hitung, dicari dengan menjumlahkan sekuensial seluruh nilai dibagi total frekuensi populasi), Median (Nilai pembagi tengah tepat, dengan prasyarat data telah diurutkan linier), dan Modus (Nilai dengan densitas kemunculan tertinggi).",
+                matrix: `
+                    <p class="text-indigo-400 font-bold mb-2 tracking-wide">// VECTOR_RANGE_ALGORITHM:</p>
+                    <p class="text-slate-400">• Nilai Jangkauan (Range) dieksekusi mutlak melalui selisih nilai batas atas dikurangi batas bawah (Xmax - Xmin).</p>
+                    <p class="text-slate-400">• Analisis sampel data tunggal (6, 7, 8, 8, 9) memuat Mean = 7.6, Median = 8, Modus = 8, dan Range = 3.</p>
+                `,
+                quiz: {
+                    prompt: "Diketahui sebaran data telemetri muatan nilai kuis harian adalah: 5, 6, 7, 7, 10. Hitunglah berapa jangkauan rentang (Range) dari sistem data tunggal tersebut!",
+                    choices: [
+                        { text: "RANGE_VALUE = 5 (Komputasi dari selisih nilai 10 - 5)", isCorrect: true },
+                        { text: "RANGE_VALUE = 7 (Karena angka 7 bertindak sebagai modus data)", isCorrect: false }
+                    ]
+                },
+                link: "https://www.youtube.com/results?search_query=statistika+data+tunggal+kelas+10"
+            }
+        };
+
+        // KONFIGURASI ENGINE MODE WARP KOSMIK (WARP DRIVE THEMES)
+        const warpEngines = {
+            nebula: {
+                orb1: "bg-cyan-500/10",
+                orb2: "bg-indigo-500/10",
+                border: "border-indigo-500/20",
+                activeTab: "bg-indigo-600 text-white shadow-[0_0_15px_rgba(99,102,241,0.4)]",
+                sidebarActive: "border-l-4 border-cyan-400 bg-indigo-950/20 shadow-sm",
+                matrixFrame: "border-indigo-500/20 text-slate-300",
+                primaryBtn: "bg-gradient-to-r from-cyan-400 to-indigo-500 hover:opacity-90 shadow-cyan-900/30"
+            },
+            supernova: {
+                orb1: "bg-amber-500/15",
+                orb2: "bg-fuchsia-600/10",
+                border: "border-amber-500/20",
+                activeTab: "bg-amber-500 text-slate-950 shadow-[0_0_15px_rgba(245,158,11,0.4)]",
+                sidebarActive: "border-l-4 border-amber-500 bg-amber-950/20 shadow-sm",
+                matrixFrame: "border-amber-500/20 text-slate-300",
+                primaryBtn: "bg-gradient-to-r from-amber-400 to-fuchsia-600 hover:opacity-90 shadow-amber-900/30"
+            },
+            horizon: {
+                orb1: "bg-zinc-800/20",
+                orb2: "bg-stone-700/10",
+                border: "border-zinc-700/40",
+                activeTab: "bg-zinc-100 text-zinc-950 font-bold",
+                sidebarActive: "border-l-4 border-amber-500 bg-zinc-900/60 shadow-sm",
+                matrixFrame: "border-zinc-800 text-slate-400",
+                primaryBtn: "bg-zinc-100 text-zinc-950 hover:bg-zinc-200 shadow-zinc-800/30"
+            }
+        };
+
+        function renderConsoleHUD() {
+            const data = spaceDatabase[currentSector];
+            const engine = warpEngines[activeWarp];
+
+            // 1. Sinkronisasi Latar Belakang Energi Glow Orb
+            document.getElementById('glow-orb-1').className = `cosmic-core absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[160px] pointer-events-none transition-all duration-700 ${engine.orb1}`;
+            document.getElementById('glow-orb-2').className = `cosmic-core absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none transition-all duration-700 ${engine.orb2}`;
+
+            // 2. Injeksi Data Teks Sektor Monitor
+            document.getElementById('sector-tag').innerText = data.tag;
+            document.getElementById('sector-tag').className = `text-[9px] hud-font px-2.5 py-1 rounded bg-black/50 border font-bold tracking-widest ${engine.border} text-slate-300`;
+            document.getElementById('sector-title').innerText = data.title;
+            document.getElementById('sector-desc').innerText = data.desc;
+
+            // 3. Injeksi Kotak Matriks Formula
+            const matrixBox = document.getElementById('telemetry-matrix');
+            matrixBox.innerHTML = data.matrix;
+            matrixBox.className = `hud-font text-xs p-4 rounded-xl border bg-black/60 ${engine.matrixFrame}`;
+
+            // 4. Injeksi Kuis Prompt
+            document.getElementById('quiz-prompt').innerText = data.quiz.prompt;
+            document.getElementById('quiz-hud-alert').className = "hidden text-xs hud-font font-bold p-3 rounded-lg text-center border transition-all duration-300";
+
+            // 5. Injeksi Grid Pilihan Jawaban Kuis
+            const gridBox = document.getElementById('quiz-grid-options');
+            gridBox.innerHTML = '';
+            data.quiz.choices.forEach(ch => {
+                const btn = document.createElement('button');
+                btn.innerText = ch.text;
+                btn.className = "p-3 bg-black/40 border border-white/10 text-slate-300 rounded-lg text-left text-xs font-semibold hover:bg-white/5 transition duration-150";
+                btn.onclick = function() { verifyTargetData(ch.isCorrect); };
+                gridBox.appendChild(btn);
             });
 
-            // 2. Tampilkan block aktif berdasarkan kombinasi ID Matrix
-            const activeBlock = document.getElementById(`block-${currentMenu}-${currentTopic}`);
-            if (activeBlock) {
-                activeBlock.style.display = 'block';
-            }
+            // 6. Sinkronisasi Tombol Router Pembahasan Utama
+            const routeBtn = document.getElementById('warp-video-btn');
+            routeBtn.href = data.link;
+            routeBtn.className = `w-full sm:w-auto text-center px-6 py-3 text-slate-950 font-black text-xs hud-font tracking-widest uppercase rounded-lg transition duration-300 shadow-lg ${engine.primaryBtn}`;
 
-            // 3. Reset & Sinkronisasi visual tombol Menu Utama (Tier 1)
-            document.getElementById('btn-materi').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-slate-900 text-slate-400";
-            document.getElementById('btn-soal').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-slate-900 text-slate-400";
-            document.getElementById('btn-youtube').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-slate-900 text-slate-400";
+            // 7. Sinkronisasi Aktif Modul Sidebar Kiri
+            const sectors = ['sptldv', 'trigo', 'stats'];
+            sectors.forEach(s => {
+                const sidebarBtn = document.getElementById(`s-${s}`);
+                if (s === currentSector) {
+                    sidebarBtn.className = `w-full p-4 rounded-xl text-left hud-panel border transition-all duration-300 group ${engine.sidebarActive}`;
+                } else {
+                    sidebarBtn.className = "w-full p-4 rounded-xl text-left hud-panel border border-white/5 hover:border-white/10 transition duration-300 group text-slate-400";
+                }
+            });
 
-            if (currentMenu === 'materi') {
-                document.getElementById('btn-materi').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/20";
-            } else if (currentMenu === 'soal') {
-                document.getElementById('btn-soal').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-purple-500 text-white shadow-lg shadow-purple-500/20";
-            } else if (currentMenu === 'youtube') {
-                document.getElementById('btn-youtube').className = "flex-1 py-3 rounded-xl font-black text-sm transition bg-rose-500 text-white shadow-lg shadow-rose-500/20";
-            }
+            // 8. Sinkronisasi Aktif Tombol Selector Warp Engine Di Atas
+            const warps = ['nebula', 'supernova', 'horizon'];
+            warps.forEach(w => {
+                const warpBtn = document.getElementById(`w-${w}`);
+                if (w === activeWarp) {
+                    warpBtn.className = `px-3 py-1.5 rounded text-[10px] hud-font font-black tracking-wider transition-all duration-300 w-full ${engine.activeTab}`;
+                } else {
+                    warpBtn.className = "px-3 py-1.5 rounded text-[10px] hud-font font-bold tracking-wider text-slate-500 hover:text-slate-300 transition-all duration-300 w-full";
+                }
+            });
 
-            // 4. Reset & Sinkronisasi visual tombol Topik (Tier 2)
-            document.getElementById('btn-spltdv').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-900 text-slate-400 border-slate-800";
-            document.getElementById('btn-trigonometri').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-900 text-slate-400 border-slate-800";
-            document.getElementById('btn-statistika').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-900 text-slate-400 border-slate-800";
+            // 9. Sync Frame Border Header & Main Panel
+            document.querySelectorAll('.hud-panel').forEach(p => {
+                p.classList.remove('border-indigo-500/20', 'border-amber-500/20', 'border-zinc-700/40');
+                if (activeWarp === 'nebula') p.classList.add('border-indigo-500/20');
+                if (activeWarp === 'supernova') p.classList.add('border-amber-500/20');
+                if (activeWarp === 'horizon') p.classList.add('border-zinc-700/40');
+            });
+        }
 
-            if (currentTopic === 'spltdv') {
-                document.getElementById('btn-spltdv').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-950 text-cyan-400 border-cyan-500/50";
-            } else if (currentTopic === 'trigonometri') {
-                document.getElementById('btn-trigonometri').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-950 text-purple-400 border-purple-500/50";
-            } else if (currentTopic === 'statistika') {
-                document.getElementById('btn-statistika').className = "px-5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-950 text-rose-400 border-rose-500/50";
-            }
-
-            // 5. Trigger render ulang MathJax (opsional jika rumus kepotong)
-            if (window.MathJax && window.MathJax.typeset) {
-                window.MathJax.typeset();
+        // Protokol Verifikasi Evaluasi Kuis HUD Terminal
+        function verifyTargetData(isCorrect) {
+            const alertBox = document.getElementById('quiz-hud-alert');
+            alertBox.classList.remove('hidden');
+            if (isCorrect) {
+                alertBox.innerText = "// TARGET_VERIFIED: KOMPUTASI LOGIKA VALID (+500 AURA POINTS) ⚡";
+                alertBox.className = "text-xs hud-font font-bold p-3 rounded-lg text-center border bg-emerald-950/40 border-emerald-500/30 text-emerald-400 block animate-bounce";
+            } else {
+                alertBox.innerText = "// COMPUTATION_ERROR: ANOMALI DATA DETECTED, SILAHKAN RE-ANALISIS!";
+                alertBox.className = "text-xs hud-font font-bold p-3 rounded-lg text-center border bg-rose-950/40 border-rose-500/30 text-rose-400 block";
             }
         }
 
-        // Fungsi Handler Klik
-        function setMenu(menuId) {
-            currentMenu = menuId;
-            showContent();
+        // Operational Router Navigation
+        function jumpSector(sectorId) {
+            currentSector = sectorId;
+            renderConsoleHUD();
         }
 
-        function setTopic(topicId) {
-            currentTopic = topicId;
-            showContent();
+        function engageWarp(warpId) {
+            activeWarp = warpId;
+            renderConsoleHUD();
         }
 
-        // Jalankan otomatis begitu seluruh DOM selesai dimuat browser HP
+        // Initial Bootup Program Command
         document.addEventListener("DOMContentLoaded", function() {
-            showContent();
+            renderConsoleHUD();
         });
     </script>
 </body>
